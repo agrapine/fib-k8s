@@ -3,12 +3,11 @@ docker build -t agrapine/fibonacci-server:latest -t agrapine/fibonacci-server:$G
 docker build -t agrapine/fibonacci-worker:latest -t agrapine/fibonacci-worker:$GIT_SHA -f ./worker/Dockerfile ./worker
 
 docker push agrapine/fibonacci-client:latest
-docker push agrapine/fibonacci-client:$GIT_SHA
-
 docker push agrapine/fibonacci-server:latest
-docker push agrapine/fibonacci-server:$GIT_SHA
-
 docker push agrapine/fibonacci-worker:latest
+
+docker push agrapine/fibonacci-client:$GIT_SHA
+docker push agrapine/fibonacci-server:$GIT_SHA
 docker push agrapine/fibonacci-worker:$GIT_SHA
 
 kubectl apply -f k8s
