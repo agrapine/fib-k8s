@@ -13,9 +13,9 @@ before_install:
   - source $HOME/google-cloud-sdk/path.bash.inc
   - gcloud components update kubectl
   - gcloud auth activate-service-account --key-file service-account.json
-  - gcloud config set project fib-k8s-229207
+  - gcloud config set project zipcube
   - gcloud config set compute/zone europe-west2-a
-  - gcloud container clusters get-credentials fib-k8s-cluster
+  - gcloud container clusters get-credentials zipcube-cluster
 #build tests
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t agrapine/fibonacci-client-test -f ./client/Dockerfile.dev ./client
