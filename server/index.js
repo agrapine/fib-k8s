@@ -53,8 +53,8 @@ app.get("/values/current", async (req, res) => {
 
 app.post("/values", async (req, res) => {
   const index = req.body.index;
-  if (parseInt(index) > 40) {
-    return res.status(422).send("index too high {max:40}");
+  if (parseInt(index) > 100) {
+    return res.status(422).send("index too high {max:100}");
   }
 
   redisClient.hset("values", index, "computing...");
